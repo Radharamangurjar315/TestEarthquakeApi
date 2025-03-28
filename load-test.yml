@@ -1,0 +1,12 @@
+config:
+  target: "http://localhost:3030"
+  phases:
+    - duration: 120  # 2-minute test
+      arrivalRate: 10  # 10 requests per second
+      rampTo: 50   # Slowly increase load to 50 requests per second
+scenarios:
+  - flow:
+      - get:
+          url: "/earthquake"
+      - get:
+          url: "/earthquake/abcd1234"
